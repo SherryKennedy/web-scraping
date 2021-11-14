@@ -2,18 +2,16 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager   
-#import requests  # needed, it is not getting data needed.
 
-#import pymongo
 import pandas as pd
 import time
 import warnings
 warnings.filterwarnings('ignore')
 
 def load_splinter_browser():
-    # Setup splinter, setup a browser to open
+    # Setup splinter, setup a browser to open  
+    # (ensure chromeDriverMangager is installed, call by path mac vs windows path)
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    #browser = Browser('chrome', **executable_path, headless=False)
     return Browser('chrome', **executable_path, headless=False)
 
 
@@ -141,6 +139,7 @@ def scrape():
                     find_image = browser.find_by_css('img[class="wide-image"]')
                     if find_image:
                         h_img_url = str(find_image['src'])
+                        #print(f'images: {h_img_url}')
                         # Append the retreived information into a list of dictionaries 
                         hemisphere_image_urls.append({"title" : title, "img_url" : h_img_url})
 

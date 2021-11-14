@@ -8,9 +8,6 @@
     <!--  Bring in Bootsrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- CSS only -->
-            <!-- -	Hint: do not assume your grader has an instance of the db created
-        -	Jinja templating is used to pass variable from your Python app to the html page and are encompassed by {{ … }} and/or {% … %}. Check out 12.3.10 index.html to see it in action -->
 
 </head>
 <body>
@@ -26,8 +23,8 @@
         <!---News scraping, one container all-->
         <div class="container">
           <h4 class="font-weight-bold">Latest Mars News</h4>
-          <h5 class="font-weight-bold">{{data1.news_title}}</h5>
-          <p>{{data1.news_p}}</p>
+          <h5 class="font-weight-bold">{{ data.news_title }}</h5>
+          <p>{{ data.news_p }}</p>
         </div>
     
         <!---Featured Image And Mars Facts row-->
@@ -36,95 +33,40 @@
                 <!-- Left side-->
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xm-12">
                   <h4 class="font-weight-bold">Featured Mars Image</h4>
-                  <img src="{{data.image_url_feature}}" style="max-width:100%;" alt="mars image">
+                  <img src="{{ data.image_url_feature }}" style="max-width:100%;" alt="mars image">
                 </div>
-                <!-- Right side-->
+                <!-- Right side html table-->
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xm-12">
                     <h5 class="font-weight-bold">Mars Facts</h5>
-                    <table>{{ data1.tables}}</table>
-                
-                 <!-- <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                 <div class="card-header">Mars Facts</div>
-                 <h5 class="card-title"> </h5>
-                 <p class="card-text">{{data.tables}}</p>
-                 </div> -->
-                 <!-- <div> -->
-                
-                 <!-- </div> -->
+                    <table>{{ data.tables|safe }}</table>
                 </div>
     
             </div>  <!--- End of row -->
         </div>   <!--- End of container-->
-    
-       
-
-        <!-- <br> -->
-        <!-- Title for Hemispheres -->
-        <!-- <h4 class="font-weight-bold" style="padding-top:30px; padding-bottom: 30px; text-align: center">
-          Mars Hemispheres</h4> -->
     </div> <!--- End of container-->
       
-    <!--TODO:: want to loop through the hemisheres and put into card? -->
+    
      <!---HEMISPHERES row -->
-    <!-- <div class="container-fluid">
-        
-        <h4 class="font-weight-bold" style="padding-top:30px; padding-bottom: 30px; text-align: center">
-            Mars Hemispheres</h4>
+    <div class="container">
+      <div class="col-xs-12">
+        <h4 class="font-weight-bold" style="text-align: center">Mars Hemispheres</h4>
+        <hr>
         <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-12">
-                <h3> {{data.hemisphere_image_urls[0]["title"]}} </h3>
-                <img src={{data.hemisphere_image_urls[0]["img_url"]}} style="max-width:100%;
-                 height:auto;" alt="hemishere picture 1" />
-              </div>
-              <div class="col-md-12">
-                <h3> {{data.hemisphere_image_urls[1]["title"]}} </h3>
-                <img src={{data.hemisphere_image_urls[1]["img_url"]}} style="max-width:100%;
-                 height:auto;" alt="hemishere picture 2" />
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-12">
-                <h3> {{data.hemisphere_image_urls[2]["title"]}} </h3>
-                <img src={{data.hemisphere_image_urls[2]["img_url"]}} style="max-width:100%;
-                 height:auto;"  alt="hemishere picture 3" />
-              </div>
-              <div class="col-md-12">
-                <h3> {{data.hemisphere_image_urls[3]["title"]}} </h3>
-                <img src={{data.hemisphere_image_urls[3]["img_url"]}} style="max-width:100%;
-                 height:auto;"  alt="hemishere picture 4"/>
-              </div>
-            </div>
-        </div>
-    </div> -->
+          {% for indx in data.hemisphere_image_urls %}
+           <div class="col col-3">    
+            <div class="card " style="margin: 0.3em;">
+                  <img class="card-img-top" style="padding:0.625rem" src="{{ indx.img_url }}" alt="Hemishere image">
+                  <div class="card-body">
+                    <h5 class="card-title" class="font-weight-bold">{{ indx.title }}</h5>
+                  </div>
+            </div> <!-- End of card -->
+          </div>  <!-- End of card 3 col -->
+          {% endfor %} 
+        </div> <!-- End of row -->
+      </div> <!-- End of col 12 -->
+    </div> <!-- End of container -->
 
 
-     <!--TODO:: want to loop through the hemisheres and put into card? try here -->
-     <!---HEMISPHERES row -->
-    <div class="container-fluid">
-
-        <!-- <h2>Card Image</h2> -->
-        <!-- <p>Image at the top (card-img-top):</p> -->
-        <div class="card" style="width:400px">
-            <!-- {% if data %} -->
-                <!-- {% for indx in data.hemisphere_image_urls %}
-                <img class="card-img-top" src={{indx.image_url}} alt="Hemishere image" style="width:100%">
-                <div class="card-body">
-                    <h4 class="card-title">{{indx.title}}</h4>
-                </div>
-                {% endfor %}  -->
-            <!-- {% endif %} -->
-        </div>
-    </div>
-
-
-
-
-
-   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
