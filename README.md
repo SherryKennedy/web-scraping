@@ -101,7 +101,8 @@ Used MongoDB with Flask templating to create a new HTML page that displays all o
 
 * Use Pymongo for CRUD applications for your database. One can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
 
-* Use Bootstrap to structure your HTML template.
+* Use Bootstrap to structure your HTML template. 
+* NOTE: TODO:: Make the app fully responsive. * Did not complete the responsiveness of this page, but does display results.
 
 - - -
 
