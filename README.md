@@ -6,7 +6,7 @@ Python, BeuatifulSoup, Pandas, Splinter to scrape NASA Mars News and save data i
 Built a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. 
 
 ### Setup
-1. Created a new repository for this project called `web-scraping`. **Do not add this homework to an existing repository**.
+1. Created a new repository for this project called `web-scraping`.
 
 2. Cloned the new repository to the computer.
 
