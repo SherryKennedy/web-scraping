@@ -81,7 +81,7 @@ hemisphere_image_urls = [
 
 Used MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
 
-* Startrd by converting the Jupyter notebook into a Python script called `scrape_mars.py` with a function called `scrape` that executes all of the scraping code from above and returns one Python dictionary containing all of the scraped data.
+* Started by converting the Jupyter notebook into a Python script called `scrape_mars.py` with a function called `scrape` that executes all of the scraping code from above and returns one Python dictionary containing all of the scraped data.
 
 * Next, created a route called `/scrape` that imports the  `scrape_mars.py` script and called the  `scrape` function.
 
@@ -102,7 +102,7 @@ Used MongoDB with Flask templating to create a new HTML page that displays all o
 * Use Pymongo for CRUD applications for your database. One can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
 
 * Use Bootstrap to structure your HTML template. 
-* NOTE: TODO:: Make the app fully responsive. * Did not complete the responsiveness of this page, but does display results.
+* Responsive (chrome) - some aspects
 
 - - -
 
